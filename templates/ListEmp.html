@@ -10,7 +10,7 @@
     <style>
         .main-hotair .content-wthree h1{
             text-align: center;
-            color: black;
+            color: white;
         }
 
         .emp_section_button {
@@ -19,12 +19,13 @@
 
         .emp_section_button p {
             font-size: 16px;
-            color: black;
+            color: white;
         }
 
         .list_employee_table {
             margin-left: auto;
             margin-right: auto;
+            background-color: white;
         }
     </style>
 
@@ -58,11 +59,11 @@
 
         {% for data in employee %}
         </tr>
-            <td>{{ data.emp_id }}</td>
-            <td>{{ data.first_name }}</td>
-            <td>{{ data.last_name }}</td>
-            <td>{{ data.pri_skill }}</td>
-            <td>{{ data.location }}</td>
+            <td>{{ data[0] }}</td>
+            <td>{{ data[1] }}</td>
+            <td>{{ data[2] }}</td>
+            <td>{{ data[3] }}</td>
+            <td>{{ data[4] }}</td>
         <tr>
         {% endfor %}
 </table>

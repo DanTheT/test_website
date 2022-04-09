@@ -88,7 +88,7 @@ def AddEmp():
 def ListEmp():
     cursor = db_conn.cursor()
     emp_id = request.form.get('emp_id')
-    first_name = request.form.ge('first_name')
+    first_name = request.form.get('first_name')
     last_name = request.form.get('last_name')
     pri_skill = request.form.get('pri_skill')
     location = request.form.get('location')

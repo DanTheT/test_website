@@ -125,7 +125,7 @@ def ListEmp():
     except Exception as e:
             return str(e)
 
-    return render_template('ListEmp.html', emp_id=emp_id, first_name=first_name, last_name=last_name, pri_skill=pri_skill, location=location, ot=ot, insurance=insurance, allowance=allowance)
+    return render_template('ListAll.html', emp_id=emp_id, first_name=first_name, last_name=last_name, pri_skill=pri_skill, location=location, ot=ot, insurance=insurance, allowance=allowance)
 
 
 if __name__ == '__main__':

@@ -97,12 +97,12 @@ def ListEmp():
 
     try:
         cursor.execute("SELECT * FROM employee", (emp_id, first_name, last_name, pri_skill, location, ot, insurance, allowance))
-        data = cursor.fetchall()    
+        getData = cursor.fetchall()    
 
     except Exception as e:
             return str(e)
 
-    return render_template('ListEmp.html', data=data)
+    return render_template('ListEmp.html', data=getData)
 
 
 if __name__ == '__main__':

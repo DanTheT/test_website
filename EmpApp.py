@@ -118,7 +118,9 @@ def ListEmp():
         cursor = db_conn.cursor()
 
         cursor.execute("SELECT * FROM employee", (emp_id, first_name, last_name, pri_skill, location, ot, insurance, allowance))
-        getData = cursor.fetchall()    
+        getData = cursor.fetchall()  
+        
+        (emp_id, first_name, last_name, pri_skill, location, ot, insurance, allowance) = getData[0]
 
     except Exception as e:
             return str(e)

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Employee</title>
+</head>
+<body>
+    <style>
+        .main-hotair .content-wthree h1{
+            text-align: center;
+            color: white;
+        }
+
+        .emp_section_button {
+            text-align: center;
+        }
+
+        .emp_section_button p {
+            font-size: 16px;
+            color: white;
+        }
+
+        .list_employee_table {
+            margin-left: auto;
+            margin-right: auto;
+            background-color: white;
+        }
+    </style>
+
+<div style="position: absolute; z-index: -1; inset: 0px; overflow: hidden; background-size: cover; background-repeat: no-repeat; background-position: center center;">
+    <video autoplay="" loop="" style="visibility: visible; margin: auto; position: absolute; z-index: -1; top: 50%; left: 0%; transform: translate(0%, -50%); width: 1521px; height: auto;">
+        <source src="freelan.mp4" type="video/mp4">
+        <source src="images/freelan.webm" type="video/webm">
+        <source src="images/freelan.ogv" type="video/ogg">
+    </video>
+</div>
+
+<div class="main-hotair">
+    <div class="content-wthree">
+        <h1>Display List Employees</h1>
+    </div>
+</div>
+
+<div class="emp_section_button">
+    <p>Proceed to Add Employee Page 
+        <button onclick="AddEmp.html">Add employee</button>
+    </p>
+</div>
+
+<table class="list_employee_table">
+        <tr>
+            <th>Employee Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Primary Skill</th>
+            <th>Location</th>
+
+        {% for data in employee %}
+        </tr>
+            <td>{{ data.emp_id }}</td>
+            <td>{{ data.first_name }}</td>
+            <td>{{ data.last_name }}</td>
+            <td>{{ data.pri_skill }}</td>
+            <td>{{ data.location }}</td>
+        <tr>
+        {% endfor %}
+</table>
+
+</body>
+</html>

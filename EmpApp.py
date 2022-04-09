@@ -106,27 +106,15 @@ def fetchdata():
 @app.route("/listdata", methods=['GET', 'POST'])
 def listemp():
     try:
-        emp_id = request.form['emp_id']
-        first_name = request.form['first_name']
-        last_name = request.form['last_name']
-        pri_skill = request.form['pri_skill']
-        location = request.form['location']
-        ot = request.form['ot']
-        insurance = request.form['insurance']
-        allowance = request.form['allowance']
-        
         cursor = db_conn.cursor()
 
-        cursor.execute("SELECT * FROM employee", (emp_id, first_name, last_name, pri_skill, location, ot, insurance, allowance))
-        getData = cursor.fetchall()  
-        
-        (emp_id, first_name, last_name, pri_skill, location, ot, insurance, allowance) = getData[0]
+        cursor.execute("SELECT * FROM employee")
+        getData = cursor.fetchall()
 
     except Exception as e:
             return str(e)
 
-    return render_template('ListAll.html', emp_id=emp_id, first_name=first_name, last_name=last_name, pri_skill=pri_skill, location=location, ot=ot, insurance=insurance, allowance=allowance)
-
+    return render_template('ListAll.html', getData=getData)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)

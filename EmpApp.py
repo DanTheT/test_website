@@ -96,7 +96,7 @@ def ListEmp():
     except Exception as e:
             return str(e)
 
-    return render_template('ListEmp.html', employee = data)
+    return render_template('ListEmp.html', employee=data)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)

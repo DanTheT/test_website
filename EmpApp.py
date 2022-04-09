@@ -103,18 +103,9 @@ def fetchdata():
     else:
         return render_template('GetData.html', fetchdata=fetchdata)
     
-@app.route("/listemp", methods=['GET', 'POST'])
+@app.route("/listdata", methods=['GET', 'POST'])
 def listemp():
     try:
-        emp_id = request.form['emp_id']
-        first_name = request.form['first_name']
-        last_name = request.form['last_name']
-        pri_skill = request.form['pri_skill']
-        location = request.form['location']
-        ot = request.form['ot']
-        insurance = request.form['insurance']
-        allowance = request.form['allowance']
-
         cursor = db_conn.cursor()
 
         cursor.execute("SELECT * FROM employee", (emp_id, first_name, last_name, pri_skill, location, ot, insurance, allowance))

@@ -87,14 +87,14 @@ def AddEmp():
 @app.route("/listemp", methods=['GET'])
 def ListEmp():
     cursor = db_conn.cursor()
-    emp_id = request.form.get['emp_id']
-    first_name = request.form.get['first_name']
-    last_name = request.form.get['last_name']
-    pri_skill = request.form.get['pri_skill']
-    location = request.form.get['location']
-    ot = request.form.get['ot']
-    insurance = request.form.get['insurance']
-    allowance = request.form.get['allowance']
+    emp_id = request.form.get('emp_id')
+    first_name = request.form.ge('first_name')
+    last_name = request.form.get('last_name')
+    pri_skill = request.form.get('pri_skill')
+    location = request.form.get('location')
+    ot = request.form.get('ot')
+    insurance = request.form.get('insurance')
+    allowance = request.form.get('allowance')
 
     try:
         cursor.execute("SELECT * FROM employee", (emp_id, first_name, last_name, pri_skill, location, ot, insurance, allowance))

@@ -91,8 +91,7 @@ def ListEmp():
     try:
         cursor.execute(retrieve_sql)
         data = cursor.fetchall()    
-
-        cursor.close()
+        
     except Exception as e:
             return str(e)
 

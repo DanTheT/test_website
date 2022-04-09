@@ -85,7 +85,7 @@ def AddEmp():
 
 @app.route("/listemp", methods=['POST'])
 def ListEmp():
-    retrieve_sql = "SELECT * from GEDemployee"
+    retrieve_sql = "SELECT * from employee"
     cursor = db_conn.cursor()
 
     try:

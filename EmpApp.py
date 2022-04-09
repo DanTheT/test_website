@@ -102,6 +102,28 @@ def fetchdata():
             return str(e)
     else:
         return render_template('GetData.html', fetchdata=fetchdata)
+    
+@app.route("/listemp", methods=['GET', 'POST'])
+def ListEmp():
+    try:
+        emp_id = request.form['emp_id']
+        first_name = request.form['first_name']
+        last_name = request.form['last_name']
+        pri_skill = request.form['pri_skill']
+        location = request.form['location']
+        ot = request.form['ot']
+        insurance = request.form['insurance']
+        allowance = request.form['allowance']
+
+        cursor = db_conn.cursor()
+
+        cursor.execute("SELECT * FROM employee", (emp_id, first_name, last_name, pri_skill, location, ot, insurance, allowance))
+        getData = cursor.fetchall()    
+
+    except Exception as e:
+            return str(e)
+
+    return render_template('ListEmp.html', emp_id=emp_id, first_name=first_name, last_name=last_name, pri_skill=pri_skill, location=location, ot=ot, insurance=insurance, allowance=allowance)
 
 
 if __name__ == '__main__':

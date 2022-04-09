@@ -99,7 +99,7 @@ def fetchdata():
              
             return render_template('GetEmpOutput.html', emp_id=emp_id, first_name=first_name, last_name=last_name, pri_skill=pri_skill, location=location, ot=ot, insurance=insurance, allowance=allowance)
         except Exception as e:
-            return render_template('NotFound.html')
+            return str(e)
     else:
         return render_template('GetData.html', fetchdata=fetchdata)
 

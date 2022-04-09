@@ -83,6 +83,20 @@ def AddEmp():
     print("all modification done...")
     return render_template('AddEmpOutput.html', name=emp_name)
 
+@app.route("/display", methods=['POST', 'GET'])
+def ListEmp():
+    retrieve_sql = "SELECT * from GEDemployee"
+    cursor = db_conn.cursor()
+
+    try:
+        cursor.execute(retrieve_sql)
+        data = cursor.fetchall()    
+
+        cursor.close()
+    except Exception as e:
+            return str(e)
+
+    return render_template('ListEmp.html', employee = data)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)

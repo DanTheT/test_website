@@ -83,7 +83,7 @@ def AddEmp():
     print("all modification done...")
     return render_template('AddEmpOutput.html', name=emp_name)
 
-@app.route("/listemp", methods=['POST', 'GET'])
+@app.route("/listemp", methods=['POST'])
 def ListEmp():
     retrieve_sql = "SELECT * from GEDemployee"
     cursor = db_conn.cursor()

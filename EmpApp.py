@@ -104,7 +104,7 @@ def fetchdata():
         return render_template('GetData.html', fetchdata=fetchdata)
     
 @app.route("/listemp", methods=['GET', 'POST'])
-def ListEmp():
+def listemp():
     try:
         emp_id = request.form['emp_id']
         first_name = request.form['first_name']

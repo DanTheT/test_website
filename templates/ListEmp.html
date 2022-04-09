@@ -47,9 +47,28 @@
             <th>Location</th>
         </tr>
 
+        <table class="list_employee_table">
         <tr>
-            <td>{{data.emp_id}}</td>
+            <th>Employee Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Primary Skill</th>
+            <th>Location</th>
         </tr>
+
+        <tr>
+            {% for row in data %}
+                <tr> {{row[0]}} </tr>
+                <tr> {{row[1]}} </tr>
+                <tr> {{row[2]}} </tr>
+                <tr> {{row[3]}} </tr>
+                <tr> {{row[4]}} </tr>
+                <tr> {{row[5]}} </tr>
+                <tr> {{row[6]}} </tr>
+                <tr> {{row[7]}} </tr>
+            {% endfor %}
+        </tr>
+</table>
 </table>
 
 </body>

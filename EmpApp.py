@@ -84,25 +84,26 @@ def AddEmp():
     print("all modification done...")
     return render_template('AddEmpOutput.html', name=emp_name)
 
-@app.route("/fetchdata", methods=['GET', 'POST'])
-def fetchdata():
-    if request.method == 'POST':
-        try:
-            emp_id = request.form['emp_id']
-            cursor = db_conn.cursor()
-            
-            fetch_sql = "SELECT * FROM employee WHERE emp_id = %s"
-            cursor.execute(fetch_sql,(emp_id))
-            emp = cursor.fetchall()
-            
-            (emp_id, first_name, last_name, pri_skill, location, ot, insurance, allowance) = emp[0]
-             
-            return render_template('ListEmp.html', emp_id=emp_id, first_name=first_name, last_name=last_name, pri_skill=pri_skill, location=location, ot=ot, insurance=insurance, allowance=allowance)
-        except Exception as e:
-            return str(e)
-    else:
-        return render_template('ListEmp.html', fetchdata=fetchdata)
+@app.route("/listemp", methods=['GET'])
+def ListEmp():
+    cursor = db_conn.cursor()
+    emp_id = request.form.get['emp_id']
+    first_name = request.form.get['first_name']
+    last_name = request.form.get['last_name']
+    pri_skill = request.form.get['pri_skill']
+    location = request.form.get['location']
+    ot = request.form.get['ot']
+    insurance = request.form.get['insurance']
+    allowance = request.form.get['allowance']
 
+    try:
+        cursor.execute("SELECT * FROM employee", (emp_id, first_name, last_name, pri_skill, location, ot, insurance, allowance))
+        getData = cursor.fetchall()    
+
+    except Exception as e:
+            return str(e)
+
+    return render_template('ListEmp.html', data=getData)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)

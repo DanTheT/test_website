@@ -101,7 +101,7 @@ def fetchdata():
         except Exception as e:
             return render_template('NotFound.html')
     else:
-        return render_template('ListEmp.html', fetchdata=fetchdata)
+        return render_template('AddEmp.html', fetchdata=fetchdata)
 
 
 if __name__ == '__main__':

@@ -10,11 +10,6 @@
 </head>
 <body>
     <style>
-        body {
-            background-image: url("image.jpg");
-            background-repeat: no-repeat;
-            background-size: 100%;
-        }
 
         .main-hotair .content-wthree h1{
             text-align: center;
@@ -57,7 +52,9 @@
             font-weight: 700;
         }
     </style>
-
+    
+<img src="{{url_for('~/static', filename='image.jpg')}}" />
+    
 <div class="main-hotair">
     <div class="content-wthree">
         <h1>Welcome to Employee Management System</h1>

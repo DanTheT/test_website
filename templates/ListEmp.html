@@ -11,10 +11,10 @@
 <body>
     <style>
         .static_background {
-        background-image: url("image.jpg");
+        background-image: url('/static/image.jpg');
         background-repeat: no-repeat;
         background-size: 100%;
-        }
+    }
         
         .main-hotair .content-wthree h1{
             text-align: center;
@@ -57,8 +57,6 @@
             font-weight: 700;
         }
     </style>
-    
-<img src="{{url_for('static', filename='image.jpg')}}" class="static_background"/>
     
 <div class="main-hotair">
     <div class="content-wthree">
